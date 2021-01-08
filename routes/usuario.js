@@ -98,7 +98,15 @@ router.post ('/login',(req, res, next) => {
     const emailusuario = {
         email: req.body.email
     }
-    console.log(`${emailusuario.email}`)
+
+    if(emailusuario.email == 'Admin@gmail.com'){
+        req.flash ('success_msg','Bem-Vindo Admin.')
+    }
+    if(emailusuario){
+        if(emailusuario.email != 'Admin@gmail.com'){
+            req.flash ('success_msg','Cadastrado Com Sucesso !')
+        }
+    }
 })
 
 module.exports = router

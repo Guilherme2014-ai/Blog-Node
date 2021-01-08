@@ -4,12 +4,12 @@
 const express = require ('express')
 const app = express ()
 const PORT = process.env.PORT || 8089
-const eAdmin = require ('./routes/usuario')
 const mongoose = require ('mongoose')
 const session = require ('express-session')
 const flash = require ('connect-flash')
 const handlebars = require ('express-handlebars')
 const bodyparser = require ('body-parser')
+const db = require ('./config/db')
 const path = require ('path')
 
 //============================Rotas===================================
@@ -53,7 +53,7 @@ require ('./config/auth')(passport)
 
     // Mongoose:
         mongoose.Promise = global.Promise;
-        mongoose.connect ('mongodb+srv://blogapp:celso_bixa2014@blogapp.dkcpb.mongodb.net/blogapp?retryWrites=true&w=majority').then (() => {
+        mongoose.connect (db.mongoURI).then (() => {
             console.log ('Conectado Com Sucesso (MONGO)')
         }).catch ('Falha ao  Se Conectar (MONGO)')
     
