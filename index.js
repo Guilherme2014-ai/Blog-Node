@@ -53,7 +53,10 @@ require ('./config/auth')(passport)
 
     // Mongoose:
         mongoose.Promise = global.Promise;
-        mongoose.connect (db.mongoURI).then (() => {
+        mongoose.connect (db.mongoURI,{
+            useUnifiedTopology: true,
+            useNewUrlParser: true,
+        }).then (() => {
             console.log ('Conectado Com Sucesso (MONGO)')
         }).catch ('Falha ao  Se Conectar (MONGO)')
     
