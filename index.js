@@ -53,7 +53,7 @@ require ('./config/auth')(passport)
 
     // Mongoose:
         mongoose.Promise = global.Promise;
-        mongoose.connect (db.mongoURI,{
+        mongoose.connect ("mongodb+srv://chat:guilherme2014@chat.gtuwm.mongodb.net/chat?retryWrites=true&w=majority",{
             useUnifiedTopology: true,
             useNewUrlParser: true,
         }).then (() => {
