@@ -9,7 +9,6 @@ const session = require ('express-session')
 const flash = require ('connect-flash')
 const handlebars = require ('express-handlebars')
 const bodyparser = require ('body-parser')
-const db = require ('./config/db')
 const path = require ('path')
 
 //============================Rotas===================================
@@ -53,7 +52,7 @@ require ('./config/auth')(passport)
 
     // Mongoose:
         mongoose.Promise = global.Promise;
-        mongoose.connect ("mongodb+srv://chat:guilherme2014@chat.gtuwm.mongodb.net/chat?retryWrites=true&w=majority",{
+        mongoose.connect ("mongodb://localhost:27017/blogapp",{
             useUnifiedTopology: true,
             useNewUrlParser: true,
         }).then (() => {
